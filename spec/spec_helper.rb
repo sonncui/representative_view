@@ -2,7 +2,7 @@ require 'action_view'
 require 'minstrel'
 require 'representative_view'
 require 'rspec'
-
+require 'ostruct'
 require 'pathname'
 require 'fixtures/books'
 
@@ -24,14 +24,14 @@ module Fixtures
     if @base.respond_to?(:template_format=) # actionpack-2
       @base.template_format = format
     elsif @base.respond_to?(:lookup_context) # actionpack-3
-      @base.lookup_context.freeze_formats([format])
+      @base.lookup_context.formats = [format]
     end
     @base.render(:file => file)
   end
 
 end
 
-Rspec.configure do |config|
+RSpec.configure do |config|
 
   config.mock_with :rr
   config.include(Fixtures)
