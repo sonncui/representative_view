@@ -8,8 +8,6 @@ if ENV["ACTIONPACK_VERSION"]
 end
 
 gem "nokogiri", ">= 1.5.0"
-gem "representative", git: "https://github.com/sonncui/representative.git"
-
 group :test do
   gem "rake", "~> 0.8.7"
   gem "rspec", "~> 3.7.0"
